@@ -1,0 +1,28 @@
+{
+  "name": "next-page-transition",
+  "version": "1.0.0",
+  "main": "dist/wrapper.js",
+  "repository": "git@github.com:postor/next-page-transition.git",
+  "author": "josh <postor@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "next dev",    
+    "build": "gulp"
+  },
+  "dependencies": {
+    "alloyfinger": "^0.1.13",
+    "next": "^5.0.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "zingtouch": "^1.0.5"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.5.2",
+    "babel-preset-stage-2": "^6.24.1",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.1",
+    "next-prisist-state": "^1.0.2"
+  }
+}

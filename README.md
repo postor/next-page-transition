@@ -33,7 +33,7 @@ export default wrapper(Index)
 
 ```
 git clone https://github.com/postor/next-page-transition.git
-cd next-page-transition
+cd next-page-transition/example
 yarn && yarn test
 ```
 

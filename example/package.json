@@ -1,0 +1,19 @@
+{
+  "name": "example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "next dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "next": "^5.0.0",
+    "next-page-transition": "^1.0.0",
+    "next-prisist-state": "^1.0.2",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  }
+}

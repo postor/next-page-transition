@@ -1,6 +1,6 @@
 {
   "name": "next-page-transition",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "dist/wrapper.js",
   "repository": "git@github.com:postor/next-page-transition.git",
   "author": "josh <postor@gmail.com>",

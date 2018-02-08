@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Steps from './Steps'
+import defaultRouter from 'next/router'
 
 export default (config = {}) => {
   const {
@@ -23,9 +24,15 @@ export default (config = {}) => {
       entered: { opacity: 1 },
       exiting: { opacity: 0, },
     },
+    Router = defaultRouter,
   } = config
 
-  let lastState = {}
+  let lastState = {}, lastHtml, currentDom
+
+  Router.onRouteChangeStart = () => {
+    if (!currentDom) return
+    lastHtml = currentDom.innerHTML
+  }
 
 
   return (Page, pageConfig = {}) => {
@@ -92,12 +99,15 @@ export default (config = {}) => {
           }}>
             {(state) => {
               return (
-                <div {...pageFrameProps} style={{
-                  ...style,
-                  ...pageTransitionStyles[state],
-                }}>
-                  <Last {...pageProps} />
-                </div>
+                <div {...pageFrameProps}
+                  style={{
+                    ...style,
+                    ...pageTransitionStyles[state],
+                  }}
+                  dangerouslySetInnerHTML={{
+                    __html: lastHtml,
+                  }}
+                />
               )
             }}
           </Steps>}
@@ -112,10 +122,13 @@ export default (config = {}) => {
           ]}>
             {(state) => {
               return (
-                <div {...pageFrameProps} style={{
-                  ...style,
-                  ...pageTransitionStyles[state],
-                }}>
+                <div {...pageFrameProps}
+                  ref={dom => currentDom = dom}
+                  style={{
+                    ...style,
+                    ...pageTransitionStyles[state],
+                  }
+                  }>
                   <Current {...pageProps} />
                 </div>
               )

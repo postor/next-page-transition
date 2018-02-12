@@ -29,9 +29,9 @@ const Index = () => (<div>
 export default wrapper(Index)
 ```
 
-**note** Do not use `Router.onRouteChangeStart=xxx` in your code, use `routerEvents.on('routeChangeStart', xxx)` refer [next-router-events](https://github.com/jaydenseric/next-router-events) 
+**note** Do not use `Router.onRouteChangeStart=xxx` in your code, use `routerEvents.on('routeChangeStart', xxx)` refer [next-router-events](https://github.com/jaydenseric/next-router-events) | 不要在你的代码中使用 `Router.onRouteChangeStart=xxx` 这样的代码，如果需要绑定next.js的路由事件请使用`routerEvents.on('routeChangeStart', xxx)`，详情参考 [next-router-events](https://github.com/jaydenseric/next-router-events) 
 
-**note** To clean the hook created by this package (most cases you do not need to), you can use `wrapper.destory()` to unregister
+**note** To clean the hook created by this package (most cases you do not need to), you can use `wrapper.destory()` to unregister | 要清理前面提到的router事件绑定（大部分时候应该是不需要清理的），你可以使用 `wrapper.destory()` 来清理
 
 
 ## test | 本地验证

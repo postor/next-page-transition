@@ -29,6 +29,11 @@ const Index = () => (<div>
 export default wrapper(Index)
 ```
 
+**note** Do not use `Router.onRouteChangeStart=xxx` in your code, use `routerEvents.on('routeChangeStart', xxx)` refer [next-router-events](https://github.com/jaydenseric/next-router-events) 
+
+**note** To clean the hook created by this package (most cases you do not need to), you can use `wrapper.destory()` to unregister
+
+
 ## test | 本地验证
 
 ```

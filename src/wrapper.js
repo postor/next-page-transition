@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
+import routerEvents from 'next-router-events'
 import Steps from './Steps'
-import defaultRouter from 'next/router'
+
+const isBrowserSide = (typeof window != 'undefined')
 
 export default (config = {}) => {
   const {
@@ -24,18 +26,17 @@ export default (config = {}) => {
       entered: { opacity: 1 },
       exiting: { opacity: 0, },
     },
-    Router = defaultRouter,
   } = config
 
   let lastState = {}, lastHtml, currentDom
 
-  Router.onRouteChangeStart = () => {
+  const routeChangeStart = () => {
     if (!currentDom) return
     lastHtml = currentDom.innerHTML
   }
+  isBrowserSide && routerEvents.on('routeChangeStart', routeChangeStart)
 
-
-  return (Page, pageConfig = {}) => {
+  const wrapper = (Page, pageConfig = {}) => {
     const pageDuration = pageConfig.duration || duration
     const pageFrameProps = pageConfig.frameProps || frameProps
     const pageTransitionStyles = pageConfig.transitionStyles || transitionStyles
@@ -140,4 +141,8 @@ export default (config = {}) => {
 
     return ({ pageProps }) => (<Trans page={Page} pageProps={pageProps} />)
   }
+
+  wrapper.destory = () => isBrowserSide&&routerEvents.off('routeChangeStart', routeChangeStart)
+
+  return wrapper
 }

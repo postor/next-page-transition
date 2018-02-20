@@ -25,5 +25,12 @@ export default (Page) => {
       }
     `}</style>
   </div>)
+  
+  Wrapper.getTransitionConfig = () => {
+    if (Page.getTransitionConfig) {
+      return Page.getTransitionConfig()
+    }
+  }
+  
   return wrapper(Wrapper)
 } 

@@ -9,6 +9,7 @@ const Index = () => (<div style={{
   <p>home page</p>
   <TestPrisist testProp={true} />
   <Link href="/about"><a>about</a></Link>
+  <Link href="/fade"><a>fade</a></Link>
 </div>)
 
 export default wrapper(Index)

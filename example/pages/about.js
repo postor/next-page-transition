@@ -9,6 +9,7 @@ const About = () => (<div style={{
   <p>about page</p>
   <TestPrisistList />
   <Link href="/"><a>home</a></Link>
+  <Link href="/fade"><a>fade</a></Link>
 </div>)
 
 export default wrapper(About)

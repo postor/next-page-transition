@@ -80,7 +80,7 @@ use `getTransitionConfig` function | 给组件添加 `getTransitionConfig` 方�
 
 ```
 import wrapper from '../components/wrapper'
-import { fade } from '../src/presets'
+import { fade } from 'next-page-transition/dist/presets'
 
 const transitionConfig = fade(1000)
 transitionConfig.frameProps.style.transform = 'none'

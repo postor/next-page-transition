@@ -86,24 +86,29 @@ export default (config = {}) => {
         const { pageProps } = this.props
         const { style = {} } = pageFrameProps
 
+        const fromConfig = Last && Last.getTransitionConfig && Last.getTransitionConfig() || {}
+        const toConfig = Current && Current.getTransitionConfig && Current.getTransitionConfig() || {}
+
         return (<div {...containerProps}>
           {Last && showLast && <Steps initial={'entered'} steps={[
             {
               timeout: 0,
               val: 'exiting',
             }, {
-              timeout: pageDuration,
+              timeout: (typeof toConfig.duration === 'number' && toConfig.duration) || pageDuration,
               val: 'exited',
             },
           ]} onEnd={() => {
             this.setState({ showLast: false })
           }}>
             {(state) => {
+              const fromStyle = fromConfig.frameProps && fromConfig.frameProps.style || {}
               return (
-                <div {...pageFrameProps}
+                <div {...(fromConfig.frameProps || pageFrameProps) }
                   style={{
                     ...style,
-                    ...pageTransitionStyles[state],
+                    ...fromStyle,
+                    ...(fromConfig.transitionStyles || pageTransitionStyles)[state],
                   }}
                   dangerouslySetInnerHTML={{
                     __html: lastHtml,
@@ -117,19 +122,20 @@ export default (config = {}) => {
               timeout: 0,
               val: Last ? 'entering' : 'entered',
             }, {
-              timeout: pageDuration,
+              timeout: (typeof toConfig.duration === 'number' && toConfig.duration) || pageDuration,
               val: 'entered',
             },
           ]}>
             {(state) => {
+              const toStyle = toConfig.frameProps && toConfig.frameProps.style || {}
               return (
-                <div {...pageFrameProps}
+                <div {...(toConfig.frameProps || pageFrameProps) }
                   ref={dom => currentDom = dom}
                   style={{
                     ...style,
-                    ...pageTransitionStyles[state],
-                  }
-                  }>
+                    ...toStyle,
+                    ...(toConfig.transitionStyles || pageTransitionStyles)[state],
+                  }}>
                   <Current {...pageProps} />
                 </div>
               )
@@ -142,7 +148,7 @@ export default (config = {}) => {
     return ({ pageProps }) => (<Trans page={Page} pageProps={pageProps} />)
   }
 
-  wrapper.destory = () => isBrowserSide&&routerEvents.off('routeChangeStart', routeChangeStart)
+  wrapper.destory = () => isBrowserSide && routerEvents.off('routeChangeStart', routeChangeStart)
 
   return wrapper
 }

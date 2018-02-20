@@ -72,3 +72,24 @@ const wrapper = w({
     },
   })
 ```
+
+
+## custom transition for single page | 不同页面使用不同的动画
+
+use `getTransitionConfig` function | 给组件添加 `getTransitionConfig` 方法  
+
+```
+import wrapper from '../components/wrapper'
+import { fade } from '../src/presets'
+
+const transitionConfig = fade(1000)
+transitionConfig.frameProps.style.transform = 'none'
+
+const About = () => (<div>
+  <p>about page</p>
+</div>)
+
+About.getTransitionConfig = () => transitionConfig
+
+export default wrapper(About)
+```

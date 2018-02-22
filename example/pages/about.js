@@ -12,4 +12,6 @@ const About = () => (<div style={{
   <Link href="/fade"><a>fade</a></Link>
 </div>)
 
+About.pageName = 'about'
+
 export default wrapper(About)

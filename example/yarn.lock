@@ -2510,9 +2510,9 @@ ncp@~2.0.0:
   version "2.0.0"
   resolved "http://registry.npm.taobao.org/ncp/download/ncp-2.0.0.tgz#195a21d6c46e361d2fb1281ba38b91e9df7bdbb3"
 
-next-page-transition@^1.0.3:
-  version "1.0.3"
-  resolved "http://registry.npm.taobao.org/next-page-transition/download/next-page-transition-1.0.3.tgz#5f9a111c5e98285255ab485dd96e7265cec782cf"
+next-page-transition@^1.0.5:
+  version "1.0.5"
+  resolved "http://registry.npm.taobao.org/next-page-transition/download/next-page-transition-1.0.5.tgz#bbe501d99130d46f62619fd04f72571561fb3399"
   dependencies:
     alloyfinger "^0.1.13"
     next "^5.0.0"

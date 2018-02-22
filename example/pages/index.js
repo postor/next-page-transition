@@ -12,4 +12,6 @@ const Index = () => (<div style={{
   <Link href="/fade"><a>fade</a></Link>
 </div>)
 
+Index.pageName = 'index'
+
 export default wrapper(Index)

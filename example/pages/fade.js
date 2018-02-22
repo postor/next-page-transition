@@ -17,6 +17,7 @@ const Fade = () => (<div style={{
   <Link href="/about"><a>about</a></Link>
 </div>)
 
+Fade.pageName = 'fade'
 
 Fade.getTransitionConfig = () => transitionConfig
 

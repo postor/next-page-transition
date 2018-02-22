@@ -93,3 +93,17 @@ About.getTransitionConfig = () => transitionConfig
 
 export default wrapper(About)
 ```
+
+`getTransitionConfig` will get called with two params(from page component and to page component) when navigation happen
+
+当导航发生时`getTransitionConfig` 会被调用并且传入两个参数（上一个页面组件和新的页面组件）
+
+```
+About.getTransitionConfig = (Last,Current) => {
+  if(Last && Last === About){
+    console.log('leaving about and entering',Current)
+  }else if(Current === About){
+    console.log('entering about and leaving',Last)
+  }
+}
+```

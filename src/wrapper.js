@@ -86,8 +86,8 @@ export default (config = {}) => {
         const { pageProps } = this.props
         const { style = {} } = pageFrameProps
 
-        const fromConfig = Last && Last.getTransitionConfig && Last.getTransitionConfig() || {}
-        const toConfig = Current && Current.getTransitionConfig && Current.getTransitionConfig() || {}
+        const fromConfig = Last && Last.getTransitionConfig && Last.getTransitionConfig(Last,Current) || {}
+        const toConfig = Current && Current.getTransitionConfig && Current.getTransitionConfig(Last,Current) || {}
 
         return (<div {...containerProps}>
           {Last && showLast && <Steps initial={'entered'} steps={[

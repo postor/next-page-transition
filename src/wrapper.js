@@ -26,6 +26,7 @@ export default (config = {}) => {
       entered: { opacity: 1 },
       exiting: { opacity: 0, },
     },
+    Container = (props) => (<div {...props} />)
   } = config
 
   let lastState = {}, lastHtml, currentDom
@@ -86,10 +87,10 @@ export default (config = {}) => {
         const { pageProps } = this.props
         const { style = {} } = pageFrameProps
 
-        const fromConfig = Last && Last.getTransitionConfig && Last.getTransitionConfig(Last,Current) || {}
-        const toConfig = Current && Current.getTransitionConfig && Current.getTransitionConfig(Last,Current) || {}
+        const fromConfig = Last && Last.getTransitionConfig && Last.getTransitionConfig(Last, Current) || {}
+        const toConfig = Current && Current.getTransitionConfig && Current.getTransitionConfig(Last, Current) || {}
 
-        return (<div {...containerProps}>
+        return (<Container {...containerProps}>
           {Last && showLast && <Steps initial={'entered'} steps={[
             {
               timeout: 0,
@@ -104,7 +105,7 @@ export default (config = {}) => {
             {(state) => {
               const fromStyle = fromConfig.frameProps && fromConfig.frameProps.style || {}
               return (
-                <div {...(fromConfig.frameProps || pageFrameProps) }
+                <div {...(fromConfig.frameProps || pageFrameProps)}
                   style={{
                     ...style,
                     ...fromStyle,
@@ -129,7 +130,7 @@ export default (config = {}) => {
             {(state) => {
               const toStyle = toConfig.frameProps && toConfig.frameProps.style || {}
               return (
-                <div {...(toConfig.frameProps || pageFrameProps) }
+                <div {...(toConfig.frameProps || pageFrameProps)}
                   ref={dom => currentDom = dom}
                   style={{
                     ...style,
@@ -141,7 +142,7 @@ export default (config = {}) => {
               )
             }}
           </Steps>
-        </div>)
+        </Container>)
       }
     }
 

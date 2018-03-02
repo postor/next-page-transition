@@ -1,7 +1,27 @@
 import w from '../src/wrapper'
 import { zoomfade } from '../src/presets'
+import SideBar from './SideBar'
 
-const wrapper = w(zoomfade())
+const wrapper = w({
+  ...zoomfade(),
+  Container: (props) => {
+    const { children } = props
+    const otherProps = Object.keys(props).reduce((p, n) => {
+      n != 'children' && (p[n] = props[n])
+      return p
+    }, {})
+
+    return (<div style={{
+      position: 'absolute',
+      width: '100vw',
+      height: '100vh',
+      overflow: 'hidden',
+    }}>
+      {children}
+      <SideBar />
+    </div>)
+  }
+})
 
 export default (Page) => {
   const Wrapper = () => (<div className="page-root">

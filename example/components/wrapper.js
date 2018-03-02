@@ -1,12 +1,14 @@
 import w from 'next-page-transition'
 import { zoomfade } from 'next-page-transition/dist/presets'
+import SideBar from './SideBar'
 
 const wrapper = w(zoomfade())
 
 export default (Page) => {
-  const Wrapper = () => (<div className="page-root">
-    <Page />
-    <style jsx global>{`
+  const Wrapper = () => (<div>
+    <div className="page-root">
+      <Page />
+      <style jsx global>{`
       .page-root {        
         width: 100vw;
         height: 100vh;
@@ -24,6 +26,8 @@ export default (Page) => {
         padding: 0;
       }
     `}</style>
+    </div>
+    <SideBar />
   </div>)
   return wrapper(Wrapper)
 } 

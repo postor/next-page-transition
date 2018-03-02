@@ -29,5 +29,14 @@ export default (Page) => {
     </div>
     <SideBar />
   </div>)
+  
+  Wrapper.pageName = Page.pageName
+  Wrapper.getTransitionConfig = (Last,Current) => {
+    console.log(`running getTransitionConfig of ${Wrapper.pageName}, nav from ${Last&&Last.pageName} to ${Current.pageName}`)
+    if (Page.getTransitionConfig) {
+      return Page.getTransitionConfig()
+    }
+  }
+  
   return wrapper(Wrapper)
 } 

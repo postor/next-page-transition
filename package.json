@@ -1,6 +1,6 @@
 {
   "name": "next-page-transition",
-  "version": "1.0.2",
+  "version": "1.0.5",
   "description": "make page transition easier for next.js | 让next.js的页面切换动画更简单",
   "main": "dist/wrapper.js",
   "repository": "git@github.com:postor/next-page-transition.git",

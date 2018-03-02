@@ -107,3 +107,39 @@ About.getTransitionConfig = (Last,Current) => {
   }
 }
 ```
+
+## custom container | 自定义的容器
+
+you may need something do not animate with page, or something like template, for example side-nav-bar
+
+你可能会需要一些不跟着页面做动画的东西，或者像是类似模板概念的东西，比如说 侧边导航条
+
+```
+import w from 'next-page-transition'
+import { zoomfade } from 'next-page-transition/dist/presets'
+import SideBar from './SideBar'
+
+const wrapper = w({
+  ...zoomfade(),
+  Container: (props) => {
+    const { children } = props
+    return (<div style={{
+      position: 'absolute',
+      width: '100vw',
+      height: '100vh',
+      overflow: 'hidden',
+    }}>
+      {children}
+      <SideBar />
+    </div>)
+  },
+})
+```
+
+`Container` by default is a div, where `props` come from `containerProps` in config
+
+```
+(props) => (<div {...props} />)
+```
+
+you can refer [wrapper.js](./example/components/wrapper.js) and run example for real code and result

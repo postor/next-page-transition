@@ -6,11 +6,6 @@ const wrapper = w({
   ...zoomfade(),
   Container: (props) => {
     const { children } = props
-    const otherProps = Object.keys(props).reduce((p, n) => {
-      n != 'children' && (p[n] = props[n])
-      return p
-    }, {})
-
     return (<div style={{
       position: 'absolute',
       width: '100vw',
@@ -20,7 +15,7 @@ const wrapper = w({
       {children}
       <SideBar />
     </div>)
-  }
+  },
 })
 
 export default (Page) => {

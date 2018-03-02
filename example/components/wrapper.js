@@ -2,13 +2,26 @@ import w from 'next-page-transition'
 import { zoomfade } from 'next-page-transition/dist/presets'
 import SideBar from './SideBar'
 
-const wrapper = w(zoomfade())
+const wrapper = w({
+  ...zoomfade(),
+  Container: (props) => {
+    const { children } = props
+    return (<div style={{
+      position: 'absolute',
+      width: '100vw',
+      height: '100vh',
+      overflow: 'hidden',
+    }}>
+      {children}
+      <SideBar />
+    </div>)
+  },
+})
 
 export default (Page) => {
-  const Wrapper = () => (<div>
-    <div className="page-root">
-      <Page />
-      <style jsx global>{`
+  const Wrapper = () => (<div className="page-root">
+    <Page />
+    <style jsx global>{`
       .page-root {        
         width: 100vw;
         height: 100vh;
@@ -26,17 +39,13 @@ export default (Page) => {
         padding: 0;
       }
     `}</style>
-    </div>
-    <SideBar />
   </div>)
-  
-  Wrapper.pageName = Page.pageName
-  Wrapper.getTransitionConfig = (Last,Current) => {
-    console.log(`running getTransitionConfig of ${Wrapper.pageName}, nav from ${Last&&Last.pageName} to ${Current.pageName}`)
+
+  Wrapper.getTransitionConfig = () => {
     if (Page.getTransitionConfig) {
       return Page.getTransitionConfig()
     }
   }
-  
+
   return wrapper(Wrapper)
 } 

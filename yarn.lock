@@ -62,10 +62,6 @@ align-text@^0.1.1, align-text@^0.1.3:
     longest "^1.0.1"
     repeat-string "^1.5.2"
 
-alloyfinger@^0.1.13:
-  version "0.1.13"
-  resolved "http://registry.npm.taobao.org/alloyfinger/download/alloyfinger-0.1.13.tgz#6c0be7d7d7d1d3ac6563aae84122af82d472a880"
-
 ansi-align@^2.0.0:
   version "2.0.0"
   resolved "http://registry.npm.taobao.org/ansi-align/download/ansi-align-2.0.0.tgz#c36aeccba563b89ceb556f3690f0b1d9e3547f7f"
@@ -5226,7 +5222,3 @@ yargs@~3.10.0:
     cliui "^2.1.0"
     decamelize "^1.0.0"
     window-size "0.1.0"
-
-zingtouch@^1.0.5:
-  version "1.0.5"
-  resolved "http://registry.npm.taobao.org/zingtouch/download/zingtouch-1.0.5.tgz#1a746438e6b2bd169a59a2df5b03099faea43559"

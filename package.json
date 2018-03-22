@@ -1,6 +1,6 @@
 {
   "name": "next-page-transition",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "make page transition easier for next.js | 让next.js的页面切换动画更简单",
   "main": "dist/wrapper.js",
   "repository": "git@github.com:postor/next-page-transition.git",
@@ -23,6 +23,8 @@
     "babel-preset-stage-2": "^6.24.1",
     "gulp": "^3.9.1",
     "gulp-babel": "^7.0.1",
+    "jquery": "^3.3.1",
+    "lodash.isfunction": "^3.0.9",
     "next-prisist-state": "^1.0.2"
   }
 }

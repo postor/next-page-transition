@@ -1,11 +1,16 @@
 import Link from 'next/link'
 import TestPrisistList from '../components/TestPrisistList'
 import wrapper from '../components/wrapper'
+import { getStyles } from '../components/custom-zoom-fade'
 
-import { fade } from '../src/presets'
+import { zoomfade } from '../src/presets'
 
-const transitionConfig = fade(1000)
-transitionConfig.frameProps.style.transform = 'none'
+const transitionConfig = zoomfade(600)
+//transitionConfig.frameProps.style.transform = 'none'
+const newEnterConfig = {
+  ...transitionConfig,
+  transitionStyles: getStyles(),
+}
 
 const About = () => (<div style={{
   position: 'absolute',
@@ -16,7 +21,12 @@ const About = () => (<div style={{
   <Link href="/"><a>home</a></Link>
 </div>)
 
-
-About.getTransitionConfig = () => transitionConfig
+About.pageName = 'about'
+About.getTransitionConfig = (Last, Current) => {
+  if (Current.pageName == About.pageName) {
+    return newEnterConfig
+  }
+  return transitionConfig
+}
 
 export default wrapper(About)

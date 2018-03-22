@@ -40,10 +40,11 @@ export default (Page) => {
       }
     `}</style>
   </div>)
-  Wrapper.getTransitionConfig = () => {
+  Wrapper.getTransitionConfig = (...args) => {
     if (Page.getTransitionConfig) {
-      return Page.getTransitionConfig()
+      return Page.getTransitionConfig(...args)
     }
   }
+  Wrapper.pageName = Page.pageName
   return wrapper(Wrapper)
 } 

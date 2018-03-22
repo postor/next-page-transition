@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import routerEvents from 'next-router-events'
 import Steps from './Steps'
+import styleOrFn from './style-or-fn'
 
 const isBrowserSide = (typeof window != 'undefined')
 
@@ -107,9 +108,9 @@ export default (config = {}) => {
               return (
                 <div {...(fromConfig.frameProps || pageFrameProps)}
                   style={{
-                    ...style,
-                    ...fromStyle,
-                    ...(fromConfig.transitionStyles || pageTransitionStyles)[state],
+                    ...styleOrFn(style),
+                    ...styleOrFn(fromStyle),
+                    ...styleOrFn((fromConfig.transitionStyles || pageTransitionStyles)[state]),
                   }}
                   dangerouslySetInnerHTML={{
                     __html: lastHtml,
@@ -129,13 +130,14 @@ export default (config = {}) => {
           ]}>
             {(state) => {
               const toStyle = toConfig.frameProps && toConfig.frameProps.style || {}
+              console.log(state,styleOrFn((toConfig.transitionStyles || pageTransitionStyles)[state]))
               return (
                 <div {...(toConfig.frameProps || pageFrameProps)}
                   ref={dom => currentDom = dom}
                   style={{
-                    ...style,
-                    ...toStyle,
-                    ...(toConfig.transitionStyles || pageTransitionStyles)[state],
+                    ...styleOrFn(style),
+                    ...styleOrFn(toStyle),
+                    ...styleOrFn((toConfig.transitionStyles || pageTransitionStyles)[state]),
                   }}>
                   <Current {...pageProps} />
                 </div>

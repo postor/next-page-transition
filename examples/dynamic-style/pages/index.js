@@ -11,17 +11,17 @@ const Index = () => (<div style={{
 }} className="page-root">
   <p>home page</p>
   <TestPrisist testProp={true} />
-  <a 
-  onClick={(e) => {
-    updateEnterCenter(e)
-    Router.push('/about')
-  }}
-  style={{
-    textDecoration:'underline',
-    color:'red',
-  }}
+  <a
+    onClick={(e) => {
+      updateEnterCenter(e)
+      Router.push('/about')
+    }}
+    style={{
+      textDecoration: 'underline',
+      color: 'red',
+    }}
   >About from here</a>
-  <br/>
+  <br />
   <Link href="/fade"><a>fade</a></Link>
 </div>)
 

@@ -1,8 +1,11 @@
+const wh100 = {  
+  width: '100vw',
+  height: '100vh'
+}
 const containerProps = {
   style: {
     position: 'relative',
-    width: '100vw',
-    height: '100vh'
+    ...wh100
   }
 }
 
@@ -15,6 +18,7 @@ export const fade = (duration = 600) => {
         position: 'absolute',
         transition: `opacity ${duration}ms ease-in-out`,
         opacity: 0,
+        ...wh100
       }
     },
     transitionStyles: {
@@ -35,6 +39,7 @@ export const zoom = (duration = 600) => {
         position: 'absolute',
         transition: `${duration}ms ease-in-out`,
         transform: 'scale(0)',
+        ...wh100
       }
     },
     transitionStyles: {
@@ -58,6 +63,7 @@ export const zoomfade = (duration = 600) => {
         position: 'absolute',
         transition: `${duration}ms ease-in-out`,
         ...exited,
+        ...wh100
       }
     },
     transitionStyles: {

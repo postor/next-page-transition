@@ -1,6 +1,4 @@
 import Link from 'next/link'
-import TestPrisist from '../components/TestPrisist'
-
 
 const Index = () => (<div style={{
   position: 'absolute',

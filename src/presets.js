@@ -1,11 +1,15 @@
+const containerProps = {
+  style: {
+    position: 'relative',
+    width: '100vw',
+    height: '100vh'
+  }
+}
+
 export const fade = (duration = 600) => {
   return {
     duration,
-    containerProps: {
-      style: {
-        position: 'relative'
-      }
-    },
+    containerProps,
     frameProps: {
       style: {
         position: 'absolute',
@@ -25,11 +29,7 @@ export const fade = (duration = 600) => {
 export const zoom = (duration = 600) => {
   return {
     duration,
-    containerProps: {
-      style: {
-        position: 'relative'
-      }
-    },
+    containerProps,
     frameProps: {
       style: {
         position: 'absolute',
@@ -52,11 +52,7 @@ export const zoomfade = (duration = 600) => {
   const exited = { transform: 'scale(0)', opacity: 0 }
   return {
     duration,
-    containerProps: {
-      style: {
-        position: 'relative'
-      }
-    },
+    containerProps,
     frameProps: {
       style: {
         position: 'absolute',

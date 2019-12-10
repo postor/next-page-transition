@@ -10,8 +10,8 @@ const transMap = new Map()
 class MyApp extends App {
   render() {
     const { Component, pageProps } = this.props
-    if (!transMap[Component]) transMap[Component] = wrapper(Component)
-    const Trans = transMap[Component]
+    if (!transMap.get(Component)) transMap.set(Component,wrapper(Component))
+    const Trans = transMap.get(Component)
     return (<div>
       <Trans {...pageProps} />
       <style jsx global>{`

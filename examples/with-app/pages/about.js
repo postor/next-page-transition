@@ -7,7 +7,7 @@ const About = () => (<div style={{
   left: 0,
   width: '100vw',
   height: '100vh',
-}}>
+}} className="page-root">
   <p>about page</p>
   <Link href="/"><a>home</a></Link>
   <style jsx global>{`html,body{margin:0;padding:0;}`}</style>

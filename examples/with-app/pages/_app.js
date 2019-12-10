@@ -12,7 +12,27 @@ class MyApp extends App {
     const { Component, pageProps } = this.props
     if (!transMap[Component]) transMap[Component] = wrapper(Component)
     const Trans = transMap[Component]
-    return (<Trans {...pageProps} />)
+    return (<div>
+      <Trans {...pageProps} />
+      <style jsx global>{`
+      .page-root {        
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+    
+      body,html {
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        margin: 0;
+        padding: 0;
+      }
+    `}</style>
+    </div>)
   }
 }
 

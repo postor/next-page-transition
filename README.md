@@ -167,3 +167,20 @@ const wrapper = w({
 ```
 
 you can refer [wrapper.js](./example/components/wrapper.js) and run example for real code and result
+
+you can refer [wrapper.js](./example/components/wrapper.js) and run example for real code and result
+
+## presets | 预定义动画
+
+`import { zoomfade } from 'next-page-transition/dist/presets'`
+
+- fade
+- zoom
+- zoomfade
+- zoomrotate
+- flipVertical
+- flipHorizontal
+- slideUp
+- slideDown
+- slideLeft
+- slideRight

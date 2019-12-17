@@ -49,42 +49,44 @@ export default (config = {}) => {
         this.state = lastState
       }
 
-      componentWillMount() {
-        const { page } = this.props
-        this.onNewPage(page)
-      }
+      // componentWillMount() {
+      //   const { page } = this.props
+      //   this.onNewPage(page)
+      // }
 
-      componentWillReceiveProps(props) {
+      // componentWillReceiveProps(props) {
+      //   const { page } = props
+      //   this.onNewPage(page)
+      // }
+
+      static getDerivedStateFromProps(props, state) {
         const { page } = props
-        this.onNewPage(page)
-      }
-
-      onNewPage(page) {
-        const { Last, Current } = this.state
+        const { Last, Current } = state
         if (Current === page) {
-          return
+          return null
         }
 
         if (!Current) {
-          this.setState({
+          return {
             Current: page,
             showCurrent: false,
             needChange: true,
-          })
-        } else {
-          this.setState({
-            Last: Current,
-            showLast: true,
-            Current: page,
-            showCurrent: false,
-            needChange: true,
-          })
+          }
+        }
+
+        return {
+          Last: Current,
+          showLast: true,
+          Current: page,
+          showCurrent: false,
+          needChange: true,
         }
       }
 
+
       render() {
         lastState = this.state
-        const { Last, showLast = false, Current, showCurrent = false } = this.state
+        const { Last, showLast = false, Current = () => ([]), showCurrent = false } = this.state
         const { pageProps } = this.props
         const { style = {} } = pageFrameProps
 
@@ -105,6 +107,7 @@ export default (config = {}) => {
           }}>
             {(state) => {
               const fromStyle = fromConfig.frameProps && fromConfig.frameProps.style || {}
+              // console.log(state, fromStyle)
               return (
                 <div {...(fromConfig.frameProps || pageFrameProps)}
                   style={{
@@ -119,7 +122,7 @@ export default (config = {}) => {
               )
             }}
           </Steps>}
-          <Steps initial={Last ? 'exited' : 'entered'} steps={[
+          <Steps initial={Last ? 'inital' : 'entered'} steps={[
             {
               timeout: 0,
               val: Last ? 'entering' : 'entered',
@@ -130,7 +133,11 @@ export default (config = {}) => {
           ]}>
             {(state) => {
               const toStyle = toConfig.frameProps && toConfig.frameProps.style || {}
-              console.log(state,styleOrFn((toConfig.transitionStyles || pageTransitionStyles)[state]))
+              // console.log(state, styleOrFn(style), styleOrFn(toStyle), {
+              //   ...styleOrFn(style),
+              //   ...styleOrFn(toStyle),
+              //   ...styleOrFn((toConfig.transitionStyles || pageTransitionStyles)[state]),
+              // })
               return (
                 <div {...(toConfig.frameProps || pageFrameProps)}
                   ref={dom => currentDom = dom}

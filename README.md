@@ -4,6 +4,8 @@ make page transition easier for next.js | 让next.js的页面切换动画更简�
 
 ![screenshot.gif](./screenshot.gif)
 
+quick glance https://youtu.be/zpzbNA0J9CM
+
 ## usage | 使用方法
 
 components/wrapper.js

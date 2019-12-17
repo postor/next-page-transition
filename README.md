@@ -67,10 +67,11 @@ const wrapper = w({
       }
     },
     transitionStyles: {      //transition styles | 各个状态的style
-      exited: { opacity: 0 },
-      entering: { opacity: 1, },
-      entered: { opacity: 1 },
-      exiting: { opacity: 0, },
+      inital: { opacity: 0 }, // before come into view
+      entering: { opacity: 1, }, // entering view
+      entered: { opacity: 1 }, // stay in view
+      exiting: { opacity: 0, }, // leaving view, while next page entering
+      exited: { opacity: 0 }, // left view, right before removed
     },
   })
 ```

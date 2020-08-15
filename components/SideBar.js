@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 import { updateEnterCenter } from './custom-zoom-fade'
 
-export default () => (<ul style={{
+const SideBar = () => (<ul style={{
   position: 'absolute',
   left: 0,
   top: '50%',
@@ -18,3 +18,5 @@ export default () => (<ul style={{
     Router.push('/about')
   }}>About from here</a></li>
 </ul>)
+
+export default SideBar

@@ -1,6 +1,6 @@
 import isFn from 'lodash.isfunction'
 
-export default (styleOrFn) => {
+const sof = (styleOrFn) => {
   if (!styleOrFn) {
     return {}
   }
@@ -11,3 +11,5 @@ export default (styleOrFn) => {
 
   return styleOrFn
 }
+
+export default sof

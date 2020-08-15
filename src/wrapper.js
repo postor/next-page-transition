@@ -5,7 +5,7 @@ import styleOrFn from './style-or-fn'
 
 const isBrowserSide = (typeof window != 'undefined')
 
-export default (config = {}) => {
+const w = (config = {}) => {
   const {
     duration = 600,
     containerProps = {
@@ -162,3 +162,5 @@ export default (config = {}) => {
 
   return wrapper
 }
+
+export default w

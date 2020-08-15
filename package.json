@@ -7,24 +7,25 @@
   "author": "josh <postor@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "dev": "next dev",
     "test": "next dev",
     "build": "gulp"
   },
   "dependencies": {
     "lodash.isfunction": "^3.0.9",
-    "next-router-events": "^1.0.1",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "next-router-events": "^2.1.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   },
   "devDependencies": {
     "babel-plugin-transform-react-jsx": "^6.24.1",
     "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-preset-env": "^1.5.2",
+    "babel-preset-env": "^1.7.0",
     "babel-preset-stage-2": "^6.24.1",
-    "gulp": "^3.9.1",
-    "gulp-babel": "^7.0.1",
-    "jquery": "^3.3.1",
-    "next": "^9.4.2",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "jquery": "^3.5.1",
+    "next": "^9.5.2",
     "next-prisist-state": "^1.0.2"
   }
 }

@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import TestPrisistList from '../components/TestPrisistList'
 import wrapper from '../components/wrapper'
 import { getStyles } from '../components/custom-zoom-fade'
 
@@ -17,7 +16,6 @@ const About = () => (<div style={{
   backgroundColor: 'hsl(158, 50%, 80%)',
 }} className="page-root">
   <p>about page</p>
-  <TestPrisistList />
   <Link href="/"><a>home</a></Link>
 </div>)
 

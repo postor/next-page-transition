@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import TestPrisistList from '../components/TestPrisistList'
 import wrapper from '../components/wrapper'
 
 import { fade } from 'next-page-transition/dist/presets'

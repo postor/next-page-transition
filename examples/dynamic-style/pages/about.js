@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import { zoomfade } from 'next-page-transition/dist/presets'
 
-import TestPrisistList from '../components/TestPrisistList'
 import { wrapper, fullPageStyle } from '../components/wrapper'
 import { getStyles } from '../components/custom-zoom-fade'
 
@@ -18,7 +17,6 @@ const About = () => (<div style={{
   backgroundColor: 'hsl(158, 50%, 80%)',
 }} className="page-root">
   <p>about page</p>
-  <TestPrisistList />
   <Link href="/"><a>home</a></Link>
   <Link href="/fade"><a>fade</a></Link>
 </div>)

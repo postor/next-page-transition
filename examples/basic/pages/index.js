@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import TestPrisist from '../components/TestPrisist'
 import wrapper from '../components/wrapper'
 
 const Index = () => (<div style={{
@@ -11,7 +10,6 @@ const Index = () => (<div style={{
   height: '100vh',
 }} className="page-root">
   <p>home page</p>
-  <TestPrisist testProp={true} />
   <Link href="/about"><a>about</a></Link>
   <style jsx global>{`html,body{margin:0;padding:0;}`}</style>
 </div>)

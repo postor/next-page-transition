@@ -18,7 +18,7 @@ const wrapper = w({
   },
 })
 
-export default (Page) => {
+const wrap = (Page) => {
   const Wrapper = () => (<div className="page-root">
     <Page />
     <style jsx global>{`
@@ -47,4 +47,6 @@ export default (Page) => {
   }
   Wrapper.pageName = Page.pageName
   return wrapper(Wrapper)
-} 
+}
+
+export default wrap

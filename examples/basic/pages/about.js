@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import TestPrisistList from '../components/TestPrisistList'
 import wrapper from '../components/wrapper'
 
 const About = () => (<div style={{
@@ -11,7 +10,6 @@ const About = () => (<div style={{
   height: '100vh',
 }}>
   <p>about page</p>
-  <TestPrisistList />
   <Link href="/"><a>home</a></Link>
   <style jsx global>{`html,body{margin:0;padding:0;}`}</style>
 </div>)

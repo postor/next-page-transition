@@ -11,9 +11,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "next": "^9.1.5",
-    "next-page-transition": "^1.0.14",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "next": "^9.5.2",
+    "next-page-transition": "^1.0.17",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   }
 }
